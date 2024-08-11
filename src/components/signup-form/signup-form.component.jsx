@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const SignupForm = ({ userData }) => {
-    const baseUrl = 'http://www.dannybeaudoin613.com/api';
+    const baseUrl = 'http://dannybeaudoin613.com:8000/';
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState({
@@ -30,7 +30,7 @@ const SignupForm = ({ userData }) => {
         event.preventDefault();
 
         if (name && email && password && password === confirmPassword) {
-            axios.post(baseUrl + '/user/create', inputs)
+            axios.post(baseUrl + 'api/user/create/', inputs)
                 .then(response => {
                     console.log(`Added user to records`);
                     setInputs({
@@ -39,7 +39,7 @@ const SignupForm = ({ userData }) => {
                         password: '',
                         confirmPassword: '',
                     });
-                    navigate('/home');
+                    navigate('/');
                 })
                 .catch(error => {
                     console.error(error);

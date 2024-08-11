@@ -11,14 +11,11 @@ import Cookies from 'js-cookie';
 
 
 const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
-
-    const navigate = useNavigate();
-
-    const baseUrl = 'http://localhost:8888';
+    const baseUrl = 'http://dannybeaudoin613.com:8000/';
 
     const [loginInputs, setLoginInputs] = useState({
-        userEmail: '',
-        userPassword: '',
+        email: '',
+        password: '',
     })
 
     const handleChange = (event) => {
@@ -28,34 +25,28 @@ const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
     };
 
     const handleSubmit = (event) => {
-        const { userEmail, userPassword } = loginInputs;
+        const { email, password } = loginInputs;
 
         event.preventDefault();
 
-        if (userEmail.length > 0 && userPassword.length > 0) {
-            axios.post(baseUrl + '/auth/login', loginInputs)
+        if (email.length > 0 && password.length > 0) {
+            axios.post(baseUrl + 'api/user/token/', loginInputs)
                 .then(response => {
                     // Extract the JWT from the response
-                    const token = response.data;
+                    const token = response.data.token
+                    console.log(token)
 
-                    if (token !== 'Incorrect login') {
-                        const decoded = jwtDecode(token);
-                        const expTime = decoded.exp * 1000;
-
-                        Cookies.set('jwtToken', token, { expires: new Date(expTime) });
-
+                    if (token !== undefined) {
+                        Cookies.set('token', token)
                         setLoginInputs({
-                            userEmail: '',
-                            userPassword: '',
+                            email: '',
+                            password: '',
                         });
-
                         setIsAuthenticatedFromLogin(true);
-
-                        navigate('/profile-page');
                     } else {
                         setLoginInputs({
-                            userEmail: '',
-                            userPassword: '',
+                            email: '',
+                            password: '',
                         });
                     }
                 })
@@ -71,8 +62,8 @@ const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
                 <label>Email
                     <input
                         type="email"
-                        name="userEmail"
-                        value={loginInputs.userEmail}
+                        name="email"
+                        value={loginInputs.email}
                         onChange={handleChange}
                         placeholder='User Email'
                     />
@@ -80,8 +71,8 @@ const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
                 <label>Password
                     <input
                         type="password"
-                        name="userPassword"
-                        value={loginInputs.userPassword}
+                        name="password"
+                        value={loginInputs.password}
                         onChange={handleChange}
                         placeholder='**********'
                     />

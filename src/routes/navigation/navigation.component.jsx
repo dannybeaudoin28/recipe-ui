@@ -18,32 +18,16 @@ import {
 
 const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [jwtToken, setJwtToken] = useState(Cookies.get('jwtToken')); 
+  const [token, setToken] = useState(Cookies.get('token')); 
 
-  console.log('inside nav jwt is: ', jwtToken);
-
-  const [searchQuery, setSearchQuery] = useState('');
+  console.log('inside nav token is: ', token);
 
   const navigate = useNavigate();
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-    // search for users
-    // return list of users
-    // load component passing in list
-    // make each item clickable
-  };
-
-  const handleSearchSubmit = (event) => {
-    // event.preventDefault();
-    console.log('handleSearchSubmit clicked!');
-    navigate(`/profile-search/${searchQuery}`);
-  };
-
   const logout = () => {
-    Cookies.remove('jwtToken');
+    Cookies.remove('token');
     localStorage.setItem('isAuthenticated', false);
-    setJwtToken(Cookies.get('jwtToken') || '');
+    setToken(Cookies.get('token') || '');
   };
 
   return (
@@ -54,28 +38,28 @@ const Navigation = () => {
           {isMobileNavOpen ? 'Close' : 'Menu'}
         </MobileNavToggle>
         <DesktopNav>
-          {jwtToken === undefined && (
+          {token === undefined && (
             <>
               <NavItem><a href="/">Home</a></NavItem>
               <NavItem><a href='/sign-up'>Sign Up</a> </NavItem>
             </>
           )}
-          {jwtToken !== undefined && (
+          {token !== undefined && (
             <>
-              <NavItem><a href='/home' onClick={logout}>Logout</a></NavItem>
+              <NavItem><a href='/' onClick={logout}>Logout</a></NavItem>
             </>
           )}
         </DesktopNav>
         <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
-          {jwtToken === undefined && (
+          {token === undefined && (
             <>
-              <NavItem><a href="/home">Home</a></NavItem>
+              <NavItem><a href="/">Home</a></NavItem>
               <NavItem><a href='/sign-up'>Sign Up</a> </NavItem>
             </>
           )}
-          {jwtToken !== undefined && (
+          {token !== undefined && (
             <>
-              <NavItem><a href='/home' onClick={logout}>Logout</a></NavItem>
+              <NavItem><a href='/' onClick={logout}>Logout</a></NavItem>
             </>
           )}
         </MobileNav>
