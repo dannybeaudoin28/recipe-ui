@@ -23,7 +23,7 @@ FROM nginx:alpine
 # Copy the build files from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
 
-EXPOSE 3000
+EXPOSE 80
 
 # Command to run the web server
 CMD ["nginx", "-g", "daemon off;"]
