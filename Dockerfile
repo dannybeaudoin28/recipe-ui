@@ -1,29 +1,16 @@
 # Use the official Node.js image as the base image
-FROM node:18 AS build
-
-# Set the working directory
+# Build stage
+FROM node:16 AS build
 WORKDIR /app
-
-# Copy the package.json and package-lock.json
-COPY package.json ./
-COPY package-lock.json ./
-
-# Install dependencies
+COPY package*.json ./
 RUN npm install
-
-# Copy the rest of the application code
 COPY . .
-
-# Build the React app
 RUN npm run build
 
-# Use a lightweight web server to serve the build
+# Production stage
 FROM nginx:alpine
-
-# Copy the build files from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
-
-EXPOSE 3000
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Command to run the web server
 CMD ["nginx", "-g", "daemon off;"]
