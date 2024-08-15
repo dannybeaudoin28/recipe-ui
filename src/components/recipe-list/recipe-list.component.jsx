@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './recipe-list.styles.scss'; // Import SCSS for styling
+import './recipe-list.styles.scss'; 
+
+import { Link } from 'react-router-dom'; // Import Link for routing
 
 import Cookies from 'js-cookie';
 
@@ -30,6 +32,9 @@ const RecipeList = () => {
     };
 
     fetchRecipes();
+    for(var i = 0; i < recipes.length; i++) {
+      console.log(recipes[i])
+    }
   }, []);
 
   return (
@@ -41,12 +46,35 @@ const RecipeList = () => {
         <ul className="recipe-list">
           {recipes.map(recipe => (
             <li key={recipe.id} className="recipe-item">
-              <h2>{recipe.title}</h2>
-              <p>{recipe.description}</p>
-              <p><strong>Time:</strong> {recipe.time_minutes} minutes</p>
-              <p><strong>Price:</strong> ${recipe.price}</p>
-              <p><strong>Link:</strong> <a href={recipe.link}>{recipe.link}</a></p>
-              {recipe.image && <img src={recipe.image} alt={recipe.title} className="recipe-image" />}
+              <Link to={`/recipes/${recipe.id}`} className="recipe-link">
+                <h2>{recipe.title}</h2>
+                <p>{recipe.description}</p>
+                <p><strong>Time:</strong> {recipe.time_minutes} minutes</p>
+                <p><strong>Price:</strong> ${recipe.price}</p>
+                <p><strong>Link:</strong> <a href={recipe.link}>{recipe.link}</a></p>
+                <p><strong>Tags:</strong>
+                  {recipe.tags && recipe.tags.length > 0 ? (
+                    <ul className="tags-list">
+                      {recipe.tags.map((tag, index) => (
+                        <li key={index} className="tag-item">{tag.name}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span>No tags available</span>
+                  )}
+                </p>
+                <p><strong>Ingredients:</strong>
+                  {recipe.ingredients && recipe.ingredients.length > 0 ? (
+                    <ul className="ingredient-list">
+                      {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index} className="ingredient-item">{ingredient.name}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span>No ingredients available</span>
+                  )}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>

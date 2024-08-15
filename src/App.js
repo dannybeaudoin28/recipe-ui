@@ -6,6 +6,7 @@ import Home from './routes/home/home.component';
 import Signup from './routes/signup/signup.component';
 import RecipePostForm from './components/recipe-post-form/recipe-post-form.component';
 import ViewRecipes from './routes/view-recipes/view-recipes.component';
+import RecipeDetail from './components/recipe-detail/recipe-detail.component';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/sign-up' element={<Signup /> } />
         <Route path='/recipes-post' element={<RecipePostForm />} />
         <Route path='/recipes-view' element={<ViewRecipes />} />
+        <Route path='/recipes/:id' element={<RecipeDetail />} />
       </Route>
     </Routes>
   );

@@ -1,0 +1,42 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on push to the main branch
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-20.04
+    needs: deploy-api
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker image for React App
+        run: |
+          docker build -t dannybeaudoin16/recipe-ui:latest -f ./Dockerfile .
+          docker push dannybeaudoin16/recipe-ui:latest
+
+      - name: Deploy React App to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa
+          chmod 600 /tmp/id_rsa
+          ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa root@89.116.167.78 << 'EOF'
+            docker pull dannybeaudoin16/recipe-ui:latest
+            docker stop recipe-ui-container || true
+            docker rm recipe-ui-container || true
+            docker run -d -p 80:80 --name recipe-ui-container dannybeaudoin16/recipe-ui:latest
+          EOF

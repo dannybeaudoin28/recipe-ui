@@ -1,69 +1,91 @@
-// recipe-list.styles.scss
-
+// Main container styling
 .recipe-list-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+// List of recipes
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipe-item {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  // Styling for the list of recipes
-  .recipe-list {
-    list-style-type: none;
-    padding: 0;
-  
-    .recipe-item {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      padding: 15px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  
-      h2 {
-        margin-top: 0;
-      }
-  
-      p {
-        margin: 5px 0;
-      }
-  
-      .recipe-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin: 10px 0;
-      }
-  
-      a {
-        color: #007bff;
-        text-decoration: none;
-        word-break: break-word;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-  
-  // Error message styling
-  .error {
-    color: #dc3545;
-    text-align: center;
-  }
-  
-  // Loader styling
-  p {
-    text-align: center;
-    font-size: 16px;
-  }
-  
+}
+
+.recipe-item h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.recipe-item p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.recipe-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-link:hover {
+  text-decoration: none;
+}
+
+.tags-list,
+.ingredient-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tag-item,
+.ingredient-item {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.tag-item {
+  background-color: #e0f7fa;
+  color: #00796b;
+}
+
+.ingredient-item {
+  background-color: #fff3e0;
+  color: #ff6f00;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+img.recipe-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
