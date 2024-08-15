@@ -28,4 +28,4 @@ EXPOSE 3000
 
 
 # Command to run the web server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
