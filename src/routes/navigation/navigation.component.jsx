@@ -18,11 +18,7 @@ import {
 
 const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [token, setToken] = useState(Cookies.get('token')); 
-
-  console.log('inside nav token is: ', token);
-
-  const navigate = useNavigate();
+  const [token, setToken] = useState(Cookies.get('token'));
 
   const logout = () => {
     Cookies.remove('token');
@@ -33,7 +29,7 @@ const Navigation = () => {
   return (
     <div>
       <Nav>
-        <Logo>Recipe Saver</Logo>
+        <a href='/'><Logo>Recipe Saver</Logo></a>
         <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
           {isMobileNavOpen ? 'Close' : 'Menu'}
         </MobileNavToggle>
@@ -46,6 +42,8 @@ const Navigation = () => {
           )}
           {token !== undefined && (
             <>
+              <NavItem><a href='/recipes-post'>Post Recipe</a></NavItem>
+              <NavItem><a href='/recipes-view'>View Recipes</a></NavItem>
               <NavItem><a href='/' onClick={logout}>Logout</a></NavItem>
             </>
           )}
@@ -59,6 +57,8 @@ const Navigation = () => {
           )}
           {token !== undefined && (
             <>
+              <NavItem><a href='/recipes-post'>Post Recipe</a></NavItem>
+              <NavItem><a href='/recipes-view'>View Recipes</a></NavItem>
               <NavItem><a href='/' onClick={logout}>Logout</a></NavItem>
             </>
           )}
