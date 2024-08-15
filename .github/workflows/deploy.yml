@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa
           chmod 600 /tmp/id_rsa
-          ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa root@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa root@89.116.167.78 << 'EOF'
             docker pull dannybeaudoin16/recipe-ui:latest
             docker stop recipe-ui-container || true
             docker rm recipe-ui-container || true
