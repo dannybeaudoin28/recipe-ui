@@ -23,7 +23,8 @@ FROM nginx:alpine
 # Copy the build files from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
 
+# Expose port 80 for Nginx
 EXPOSE 80
 
-# Command to run the web server
+# Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
