@@ -10,7 +10,7 @@ const RecipeDetail = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const baseUrl = 'recipe-container:8000/';
+  const baseUrl = 'http://dannybeaudoin613.com:8000/';
 
   useEffect(() => {
     const fetchRecipe = async () => {

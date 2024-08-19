@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 
 
 const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
-    const baseUrl = 'recipe-container:8000/';
+    const baseUrl = 'http://dannybeaudoin613.com:8000/';
 
     const [loginInputs, setLoginInputs] = useState({
         email: '',

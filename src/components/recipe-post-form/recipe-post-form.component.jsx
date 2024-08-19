@@ -17,7 +17,7 @@ const RecipePostForm = () => {
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const baseUrl = 'recipe-container:8000/'; // Replace with your API endpoint
+  const baseUrl = 'http://dannybeaudoin613.com:8000/'; // Replace with your API endpoint
 
   var recipeId;
 
