@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 
 
 const LoginForm = ({ setIsAuthenticatedFromLogin }) => {
-    const baseUrl = 'https://89.116.167.78:8000/';
+    const baseUrl = 'http://89.116.167.78:8000/';
 
     const [loginInputs, setLoginInputs] = useState({
         email: '',
