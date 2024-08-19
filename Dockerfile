@@ -22,8 +22,8 @@ FROM nginx:alpine
 
 # Copy the build files from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
-COPY fullchain.pem ~/certs/fullchain.pem
-COPY privkey.pem ~/certs/privkey.pem
+COPY fullchain.pem /etc/ssl/certs/fullchain.pem
+COPY privkey.pem /etc/ssl/certs/privkey.pem
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 for Nginx
