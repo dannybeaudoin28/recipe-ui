@@ -22,13 +22,12 @@ FROM nginx:alpine
 
 # Copy the build files from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
-COPY fullchain.pem /etc/letsencrypt/live/dannybeaudoin613.com-0002/fullchain.pem
-COPY privkey.pem /etc/letsencrypt/live/dannybeaudoin613.com-0002/privkey.pem
+# COPY fullchain.pem /etc/letsencrypt/live/dannybeaudoin613.com-0002/fullchain.pem
+# COPY privkey.pem /etc/letsencrypt/live/dannybeaudoin613.com-0002/privkey.pem
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 for Nginx
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
 # Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
