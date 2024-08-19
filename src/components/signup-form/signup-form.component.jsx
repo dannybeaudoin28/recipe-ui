@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const SignupForm = ({ userData }) => {
-    const baseUrl = 'http://dannybeaudoin613.com:8000/';
+    const baseUrl = 'recipe-container:8000/';
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState({
