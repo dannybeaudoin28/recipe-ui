@@ -1,0 +1,98 @@
+$primary-color: #6b4226; // Warm brown color
+$secondary-color: #ffffff; // White color
+$background-color: #faf3e0; // Light cream background color
+$input-background: #fffaf0; // Soft cream input background color
+$input-border: #c0a080; // Light brown border color
+$text-color: #4f3821; // Dark brown text color
+$button-color: #d97a4a; // Burnt orange button color
+$button-hover: darken($button-color, 10%); // Darker shade for hover effect
+
+.form-box {
+    max-width: 400px;
+    margin: auto;
+    padding-top: 40px;
+    background-color: $primary-color;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+
+    @media (max-width: 768px) {
+        margin: 50px 20px;
+        padding: 30px 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        width: 100%;
+        margin-bottom: 15px;
+        color: $secondary-color;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding-top: 18px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-top: 5px;
+            border: 1px solid $input-border;
+            border-radius: 10px;
+            background-color: $input-background;
+            color: $text-color;
+            font-size: 1.05rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $button-color;
+                box-shadow: 0 0 6px rgba(217, 122, 74, 0.6);
+            }
+        }
+    }
+
+    .submitButton {
+        width: 100%;
+        padding: 14px 0;
+        margin-top: 25px;
+        border: none;
+        border-radius: 10px;
+        background-color: $button-color;
+        color: $secondary-color;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $button-hover;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-box {
+        padding: 20px;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    .submitButton {
+        font-size: 1.1rem;
+    }
+}

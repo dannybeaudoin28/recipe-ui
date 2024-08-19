@@ -56,7 +56,7 @@ const SignupForm = ({ userData }) => {
                     <input
                         type="text"
                         name="name"
-                        value={inputs.userName}
+                        value={inputs.name} // Corrected value
                         onChange={handleChange}
                         placeholder={userData?.userName || 'John'}
                     />
@@ -65,7 +65,7 @@ const SignupForm = ({ userData }) => {
                     <input
                         type="email"
                         name="email"
-                        value={inputs.userEmail}
+                        value={inputs.email} // Corrected value
                         onChange={handleChange}
                         placeholder={userData?.userEmail || 'test@test.com'}
                     />
@@ -74,7 +74,7 @@ const SignupForm = ({ userData }) => {
                     <input
                         type="password"
                         name="password"
-                        value={inputs.userPassword}
+                        value={inputs.password} // Corrected value
                         onChange={handleChange}
                         placeholder={'**********'}
                     />
@@ -83,7 +83,7 @@ const SignupForm = ({ userData }) => {
                     <input
                         type="password"
                         name="confirmPassword"
-                        value={inputs.userConfirmPassword}
+                        value={inputs.confirmPassword} // Corrected value
                         onChange={handleChange}
                         placeholder={'**********'}
                     />

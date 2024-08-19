@@ -3,12 +3,15 @@
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #faf3e0; // Light cream background
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #6b4226; // Warm brown color
 }
 
 // List of recipes
@@ -18,31 +21,31 @@ h1 {
 }
 
 .recipe-item {
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 15px;
+  background: #fffaf0; // Soft cream background
+  border: 1px solid #c0a080; // Light brown border color
+  border-radius: 10px;
+  margin-bottom: 25px;
+  padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
-  
+  color: #4f3821; // Dark brown text color
+
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
 }
 
 .recipe-item h2 {
   margin-top: 0;
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 1.75rem;
+  color: #6b4226; // Warm brown color
 }
 
 .recipe-item p {
   margin: 10px 0;
-  color: #555;
+  color: #4f3821; // Dark brown text color
 }
 
 .recipe-link {
@@ -58,34 +61,38 @@ h1 {
 .ingredient-list {
   list-style-type: none;
   padding: 0;
+  margin-top: 10px;
 }
 
 .tag-item,
 .ingredient-item {
   background: #f4f4f4;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-right: 5px;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin-right: 8px;
   display: inline-block;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .tag-item {
-  background-color: #e0f7fa;
-  color: #00796b;
+  background-color: #ffe0b2; // Soft orange background
+  color: #bf360c; // Darker orange text
 }
 
 .ingredient-item {
-  background-color: #fff3e0;
-  color: #ff6f00;
+  background-color: #ffebcd; // Blanched almond background
+  color: #d97a4a; // Burnt orange text
 }
 
 .error {
-  color: red;
+  color: #e94e77; // Pink color for errors
   text-align: center;
 }
 
 img.recipe-image {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
