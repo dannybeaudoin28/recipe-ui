@@ -37,5 +37,5 @@ jobs:
             docker pull dannybeaudoin16/recipe-ui:latest
             docker stop recipe-ui-container || true
             docker rm recipe-ui-container || true
-            docker run -d -p 3000:80 --name recipe-ui-container dannybeaudoin16/recipe-ui:latest
+            docker run -d -p 3000:443 --name recipe-ui-container dannybeaudoin16/recipe-ui:latest
           EOF
