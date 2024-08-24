@@ -17,47 +17,10 @@ const RecipePostForm = () => {
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const baseUrl = 'http://dannybeaudoin613.com:8000/'; // Replace with your API endpoint
+  const baseUrl = 'https://www.dannybeaudoin613.com:8000/'; 
 
   var recipeId;
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   setError(null);
-  //   setSuccess(null);
-
-  //   const requestBody = {
-  //     title,
-  //     description,
-  //     time_minutes: timeMinutes,
-  //     price,
-  //     link,
-  //     tags: tags.split(',').map(tag => ({ name: tag.trim() })),
-  //     ingredients: ingredients.split(',').map(ingredient => ({ name: ingredient.trim() })),
-  //   };
-
-  //   // If there's an image, handle it separately
-  //   if (image) {
-  //     requestBody.image = image; // This will need to be handled on the server side
-  //   }
-
-  //   try {
-  //     const response = await axios.post(baseUrl + 'api/recipe/recipes/', requestBody, {
-  //       headers: {
-  //         'Content-Type': 'application/json', // For uploading files
-  //         'Authorization': `Token ${Cookies.get('token')}`, // Add your token if required
-  //       },
-  //     });
-  //     setSuccess('Recipe posted successfully!');
-  //     console.log(response);
-  //   } catch (error) {
-  //     setError('Failed to post recipe.');
-  //     console.error('Error posting recipe:', error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
