@@ -1,95 +1,110 @@
-// RecipePostForm.scss
-
-// Basic layout styles
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  // Form styling
-  form {
+  max-width: 800px;
+  margin: 40px auto; /* Increased top and bottom margin for better spacing */
+  padding: 20px;
+  background-color: #ffffff; /* Match the app's background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
+}
+
+h1 {
+  text-align: center;
+  color: #222; /* Darker text color */
+  margin-bottom: 30px; /* Increased bottom margin for better spacing */
+  font-size: 2rem; /* Ensure consistency with headings */
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased spacing for a cleaner layout */
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  div {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-  
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+    gap: 8px;
+    margin-bottom: 15px; /* Added margin below each input group for spacing */
+  }
+
+  label {
+    font-weight: 600;
+    color: #444; /* Darker label color for contrast */
+    font-size: 1rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  select {
+    padding: 12px; /* Increased padding for better usability */
+    border: 1px solid #ccc; /* Lighter border color */
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9; /* Consistent input background */
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #007bff; /* Accent color on focus */
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus ring */
     }
-  
-    label {
-      font-weight: bold;
-      color: #555;
-    }
-  
-    input[type="text"],
-    input[type="number"],
-    textarea,
-    select {
+  }
+
+  input[type="file"] {
+    padding: 0;
+    font-size: 1rem;
+    color: #555; /* Slightly lighter text color */
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px; /* Increased minimum height */
+  }
+
+  select {
+    option {
       padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-  
-    input[type="file"] {
-      padding: 0;
-    }
-  
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-  
-    select {
-      option {
-        padding: 10px;
-      }
-    }
-  
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #0056b3;
-      }
-  
-      &:disabled {
-        background-color: #cccccc;
-        cursor: not-allowed;
-      }
-    }
-  
-    p {
-      text-align: center;
-      font-size: 16px;
     }
   }
-  
-  // Feedback messages
-  .success {
-    color: #28a745;
+
+  button {
+    background-color: #28a745; /* Match with app's primary button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px; /* Consistent padding */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px; /* Added top margin for better button placement */
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #218838; /* Darker shade on hover */
+    }
+
+    &:disabled {
+      background-color: #6c757d; /* Disabled state color */
+      cursor: not-allowed;
+    }
   }
-  
-  .error {
-    color: #dc3545;
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    color: #555; /* Standard text color */
+    margin-top: 20px; /* Added top margin for spacing above feedback messages */
   }
-  
+}
+
+.success {
+  color: #28a745; /* Success color consistent with app */
+}
+
+.error {
+  color: #dc3545; /* Error color consistent with app */
+}
