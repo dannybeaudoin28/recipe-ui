@@ -24,10 +24,10 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 # COPY fullchain.pem /etc/ssl/certs/fullchain.pem
 # COPY privkey.pem /etc/ssl/certs/privkey.pem
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 for Nginx
-EXPOSE 80 443
+EXPOSE 3000
 
 # Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
